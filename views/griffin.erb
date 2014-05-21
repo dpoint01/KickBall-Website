@@ -1,0 +1,22 @@
+<html lang="en">
+  <head>
+    <title>Full List of Players</title>
+  </head>
+
+  <body>
+    <h1 style="font-family: Impact; color: blue">List of Players in Griffin Goats</h1>
+
+    <h2> First Name, Last Name | Position </h2>
+    <strong>
+    <ul style="list-style-type: none">
+
+
+      <% @part_list4.each do |player| %>
+
+        <li><%= player[:first_name]+ ", " + player[:last_name] + " | " + player[:position]  %></li>
+      <% end %>
+    </ul>
+    <img src="http://img2.wikia.nocookie.net/__cb20100102210207/familyguy/images/c/c4/FamilyGuy_09_v2F.jpg">
+    </strong>
+  </body>
+</html>

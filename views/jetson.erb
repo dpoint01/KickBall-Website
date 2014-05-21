@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Full List of Players</title>
+  </head>
+
+  <body>
+    <h1 style="font-family: Impact; color: blue">List of Players in Jetson Jets</h1>
+
+    <h2> First Name, Last Name | Position </h2>
+    <strong>
+    <ul style="list-style-type: none">
+
+
+      <% @part_list2.each do |player| %>
+
+        <li><%= player[:first_name]+ ", " + player[:last_name] + " | " + player[:position]  %></li>
+      <% end %>
+      <img src="http://cdn.freshome.com/wp-content/uploads/2013/01/the-jetsons3.jpeg">
+
+    </ul>
+    </strong>
+  </body>
+</html>
