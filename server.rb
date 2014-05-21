@@ -2,7 +2,8 @@
 #
 # in terminal, run "ruby server.rb"
 # open in web browser "localhost:4567"
-#
+# NOTE: in order to have access to all the different URLs,
+# the server.rb file has to be constantly running in the background
 #
 
 
@@ -28,6 +29,33 @@ CSV.foreach('lackp_starting_rosters.csv', headers: true) do |row|
 
 end
 
+#--------------------------------------------#
+
+get '/' do
+  @whole_list = array_of_hashes
+  erb :whole_list
+end
+
+
+#I now can run dynamically through this get method.
+#instead of having four files for the four teams,
+#I just have a main show.erb file where everything is happening there
+get '/team/:team' do
+
+  @list = []
+
+  array_of_hashes.each do |player|
+    if player[:team] == params[:team]
+      @list << player
+    end
+  end
+
+  erb :show
+
+end
+
+#--------------------------------------------#
+
 #returns a sub_array of the larger passed array from a specified
 #beginning index and and end index
 def retrieve(array, drop_this_many, print_this_many)
@@ -47,38 +75,6 @@ team_jetson = retrieve(array_of_hashes, 9, 9)
 team_flinestone = retrieve(array_of_hashes,20, 7)
 #array of all the players in GRIFFIN GOATS
 team_griffin = retrieve(array_of_hashes, 27, 10)
-
-
-
-
-#this is just for testing the structure
-# count =0
-
-# array_of_hashes.each do |x|
-#   count += 1
-#   p array_of_hashes[count][:first_name]+" "+array_of_hashes[count][:last_name] +" "+array_of_hashes[count][:position]
-
-# end
-
-#--------------------------------------------#
-
-get '/' do
-  @whole_list = array_of_hashes
-  erb :whole_list
-end
-
-get '/team/:team' do
-  @list = []
-
-  array_of_hashes.each do |player|
-    if player[:team] == params[:team]
-      @list << player
-    end
-  end
-
-  erb :show
-
-end
 
 
 # get '/team/Simpson Slammers' do
