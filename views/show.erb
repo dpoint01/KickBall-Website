@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Full List of Players</title>
+  </head>
+
+  <body>
+    <h1 style="font-family: Impact; color: blue">List of Players in <%=@list[0][:team]%></h1>
+
+    <h2> First Name, Last Name | Position </h2>
+    <strong>
+    <ul style="list-style-type: none">
+
+
+      <% @list.each do |player| %>
+
+        <li><%= player[:first_name]+ ", " + player[:last_name] + " | " + player[:position]  %></li>
+      <% end %>
+    </ul>
+
+    <% if @list[0][:team] == "Simpson Slammers" %>
+      <img src="http://www.tdogmedia.com/wp-content/uploads/2013/11/The-Simpsons-2.jpg">
+    <% end %>
+
+    <% if @list[0][:team] == "Flinestone Fire" %>
+      <img src="http://076dd0a50e0c1255009e-bd4b8aabaca29897bc751dfaf75b290c.r40.cf1.rackcdn.com/images/files/000/006/402/original/original.1">
+    <% end %>
+
+    <% if @list[0][:team] == "Jetson Jets" %>
+      <img src="http://cdn.freshome.com/wp-content/uploads/2013/01/the-jetsons3.jpeg">
+    <% end %>
+
+    <% if @list[0][:team] == "Griffin Goats" %>
+      <img src="http://img2.wikia.nocookie.net/__cb20100102210207/familyguy/images/c/c4/FamilyGuy_09_v2F.jpg">
+    <% end %>
+
+    </strong>
+  </body>
+</html>
